@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>Алексей | Резюме</title>
+
+  <style>
+
+    /* ==========================================================================
+       CSS ПЕРЕМЕННЫЕ
+       Управление цветами, размерами и тенями
+       ========================================================================== */
+
+    :root {
+
+      --bg-color: #f4f7fb;
+      --card-color: rgba(255, 255, 255, 0.6);
+
+      --text-color: #1e293b;
+      --muted-color: #64748b;
+
+      --accent-color: #2563eb;
+
+      --border-color: rgba(255, 255, 255, 0.5);
+
+      --shadow:
+        0 10px 35px rgba(0, 0, 0, 0.08);
+
+      --radius: 28px;
+
+      --container-width: 1200px;
+
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 2rem;
+      --space-lg: 4rem;
+      --space-xl: 7rem;
+
+    }
+
+    /* ==========================================================================
+       RESET
+       ========================================================================== */
+
+    * {
+
+      margin: 0;
+      padding: 0;
+
+      box-sizing: border-box;
+    }
+
+    html {
+
+      scroll-behavior: smooth;
+    }
+
+    body {
+
+      font-family: Arial, sans-serif;
+
+      background:
+        linear-gradient(
+          180deg,
+          #f8fafc 0%,
+          #eef2ff 100%
+        );
+
+      color: var(--text-color);
+
+      line-height: 1.7;
+    }
+
+    a {
+
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+
+      max-width: 100%;
+      display: block;
+    }
+
+    /* ==========================================================================
+       ОБЩИЕ КЛАССЫ
+       ========================================================================== */
+
+    .container {
+
+      width: min(100% - 2rem, var(--container-width));
+
+      margin-inline: auto;
+    }
+
+    .section {
+
+      padding-block: var(--space-xl);
+    }
+
+    .section-header {
+
+      margin-bottom: var(--space-lg);
+    }
+
+    .section-label {
+
+      color: var(--accent-color);
+
+      letter-spacing: 0.15em;
+
+      font-size: 0.9rem;
+
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+
+      font-size: clamp(2rem, 5vw, 4rem);
+
+      line-height: 1.1;
+    }
+
+    .glass {
+
+      background: var(--card-color);
+
+      border: 1px solid var(--border-color);
+
+      backdrop-filter: blur(14px);
+
+      border-radius: var(--radius);
+
+      box-shadow: var(--shadow);
+    }
+
+    .btn {
+
+      border: none;
+
+      cursor: pointer;
+
+      border-radius: 999px;
+
+      padding:
+        1rem 1.5rem;
+
+      font-size: 1rem;
+
+      font-weight: bold;
+
+      transition: 0.3s ease;
+    }
+
+    .btn-primary {
+
+      background: var(--accent-color);
+
+      color: white;
+    }
+
+    .btn-primary:hover {
+
+      transform: translateY(-4px);
+    }
+
+    .btn-secondary {
+
+      background: white;
+
+      color: var(--text-color);
+    }
+
+    .btn-secondary:hover {
+
+      transform: translateY(-4px);
+    }
+
+    /* ==========================================================================
+       HEADER
+       ========================================================================== */
+
+    .header {
+
+      position: sticky;
+
+      top: 0;
+
+      z-index: 1000;
+
+      padding: 1rem 0;
+
+      transition: 0.3s ease;
+    }
+
+    /* Вид навигации при прокрутке */
+
+    .header.scrolled {
+
+      background: rgba(255, 255, 255, 0.7);
+
+      backdrop-filter: blur(16px);
+
+      box-shadow: var(--shadow);
+    }
+
+    .nav {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+    }
+
+    .logo {
+
+      font-size: 1.2rem;
+
+      font-weight: bold;
+    }
+
+    .nav-list {
+
+      display: flex;
+
+      gap: 2rem;
+
+      list-style: none;
+    }
+
+    .nav-list a {
+
+      transition: 0.3s ease;
+    }
+
+    .nav-list a:hover {
+
+      color: var(--accent-color);
+    }
+
+    /* ==========================================================================
+       HERO
+       ========================================================================== */
+
+    .hero {
+
+      min-height: 100vh;
+
+      display: flex;
+
+      align-items: center;
+    }
+
+    .hero-grid {
+
+      display: grid;
+
+      grid-template-columns: repeat(2, 1fr);
+
+      gap: 4rem;
+
+      align-items: center;
+    }
+
+    .hero-subtitle {
+
+      color: var(--accent-color);
+
+      margin-bottom: 1rem;
+
+      font-weight: bold;
+    }
+
+    .hero-title {
+
+      font-size: clamp(3rem, 8vw, 6rem);
+
+      line-height: 1;
+
+      margin-bottom: 2rem;
+    }
+
+    .hero-text {
+
+      color: var(--muted-color);
+
+      font-size: clamp(1rem, 2vw, 1.2rem);
+
+      margin-bottom: 2rem;
+
+      max-width: 600px;
+    }
+
+    .hero-buttons {
+
+      display: flex;
+
+      gap: 1rem;
+
+      flex-wrap: wrap;
+    }
+
+    .hero-card {
+
+      padding: 2rem;
+    }
+
+    .hero-card ul {
+
+      list-style: none;
+
+      margin-top: 1.5rem;
+    }
+
+    .hero-card li {
+
+      margin-bottom: 1rem;
+    }
+
+    /* ==========================================================================
+       TIMELINE
+       ========================================================================== */
+
+    .timeline {
+
+      position: relative;
+
+      margin-left: 1rem;
+    }
+
+    .timeline::before {
+
+      content: "";
+
+      position: absolute;
+
+      left: 0;
+
+      top: 0;
+
+      width: 2px;
+
+      height: 100%;
+
+      background: rgba(0, 0, 0, 0.15);
+    }
+
+    .timeline-item {
+
+      position: relative;
+
+      padding-left: 3rem;
+
+      margin-bottom: 3rem;
+    }
+
+    .timeline-dot {
+
+      width: 16px;
+      height: 16px;
+
+      border-radius: 50%;
+
+      background: var(--accent-color);
+
+      position: absolute;
+
+      left: -7px;
+
+      top: 1rem;
+    }
+
+    .timeline-content {
+
+      padding: 2rem;
+    }
+
+    .timeline-date {
+
+      color: var(--accent-color);
+
+      font-weight: bold;
+
+      display: inline-block;
+
+      margin-bottom: 1rem;
+    }
+
+    /* ==========================================================================
+       EDUCATION
+       ========================================================================== */
+
+    .education-card {
+
+      padding: 2rem;
+    }
+
+    /* ==========================================================================
+       SKILLS
+       ========================================================================== */
+
+    .skills-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(auto-fit, minmax(240px, 1fr));
+
+      gap: 2rem;
+    }
+
+    .skill-card {
+
+      background: white;
+
+      padding: 2rem;
+
+      border-radius: var(--radius);
+
+      box-shadow: var(--shadow);
+
+      transition: 0.3s ease;
+    }
+
+    .skill-card:hover {
+
+      transform: translateY(-10px);
+    }
+
+    .skill-card h3 {
+
+      margin-bottom: 1rem;
+    }
+
+    /* ==========================================================================
+       FORM
+       ========================================================================== */
+
+    .contact-form {
+
+      max-width: 700px;
+
+      padding: 2rem;
+    }
+
+    .form-group {
+
+      display: flex;
+
+      flex-direction: column;
+
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+
+      margin-bottom: 0.5rem;
+
+      font-weight: bold;
+    }
+
+    .form-group input,
+    .form-group textarea {
+
+      border: none;
+
+      border-radius: 18px;
+
+      padding: 1rem;
+
+      font-size: 1rem;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+
+      outline: 2px solid var(--accent-color);
+    }
+
+    .notification {
+
+      margin-top: 1rem;
+
+      font-weight: bold;
+    }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
+
+    .footer {
+
+      padding: 2rem 0;
+
+      text-align: center;
+
+      color: var(--muted-color);
+    }
+
+    /* ==========================================================================
+       АНИМАЦИИ
+       ========================================================================== */
+
+    .reveal {
+
+      opacity: 0;
+
+      transform: translateY(40px);
+
+      transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+    }
+
+    .reveal.active {
+
+      opacity: 1;
+
+      transform: translateY(0);
+    }
+
+    /* ==========================================================================
+       АДАПТИВНОСТЬ
+       ========================================================================== */
+
+    @media (max-width: 900px) {
+
+      .hero-grid {
+
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 700px) {
+
+      .nav {
+
+        flex-direction: column;
+
+        gap: 1rem;
+      }
+
+      .nav-list {
+
+        gap: 1rem;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+      }
+
+      .section {
+
+        padding-block: 5rem;
+      }
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- ==========================================================================
+       HEADER
+       ========================================================================== -->
+
+  <header
+    class="header"
+    id="header"
+  >
+
+    <div class="container nav">
+
+      <a
+        href="#"
+        class="logo"
+      >
+        Алексей
+      </a>
+
+      <nav>
+
+        <ul class="nav-list">
+
+          <li>
+            <a href="#about">Обо мне</a>
+          </li>
+
+          <li>
+            <a href="#experience">Опыт</a>
+          </li>
+
+          <li>
+            <a href="#education">Образование</a>
+          </li>
+
+          <li>
+            <a href="#skills">Навыки</a>
+          </li>
+
+          <li>
+            <a href="#contact">Контакты</a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+  <!-- ==========================================================================
+       MAIN
+       ========================================================================== -->
+
+  <main>
+
+    <!-- ========================================================================
+         HERO
+         ======================================================================== -->
+
+    <section class="hero section">
+
+      <div class="container hero-grid">
+
+        <!-- Левая часть -->
+
+        <div class="reveal">
+
+          <p class="hero-subtitle">
+            Студент МГТУ «СТАНКИН»
+          </p>
+
+          <h1 class="hero-title">
+            Автоматизация технологических процессов и производств
+          </h1>
+
+          <p class="hero-text">
+
+            Интересуюсь автоматизированными системами,
+            современными технологиями производства,
+            программированием и инженерными решениями.
+
+          </p>
+
+          <div class="hero-buttons">
+
+            <!-- Кнопка-заглушка -->
+
+            <a
+              href="#"
+              class="btn btn-primary"
+            >
+              Скачать резюме
+            </a>
+
+            <!-- Скролл к форме -->
+
+            <button
+              class="btn btn-secondary"
+              id="contact-button"
+            >
+              Связаться со мной
+            </button>
+
+          </div>
+
+        </div>
+
+        <!-- Правая карточка -->
+
+        <div class="glass hero-card reveal">
+
+          <h2>
+            Краткая информация
+          </h2>
+
+          <ul>
+
+            <li>
+              Специальность:
+              автоматизация технологических процессов
+            </li>
+
+            <li>
+              Университет:
+              МГТУ «СТАНКИН»
+            </li>
+
+            <li>
+              Интересы:
+              автоматизация, программирование, CAD/CAM
+            </li>
+
+            <li>
+              Цель:
+              развитие в сфере инженерии и IT
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ========================================================================
+         ABOUT
+         ======================================================================== -->
+
+    <section
+      class="section"
+      id="about"
+    >
+
+      <div class="container reveal">
+
+        <div class="section-header">
+
+          <p class="section-label">
+            ОБО МНЕ
+          </p>
+
+          <h2 class="section-title">
+            Техническое направление и инженерный подход
+          </h2>
+
+        </div>
+
+        <p class="hero-text">
+
+          Изучаю автоматизацию производственных процессов,
+          принципы работы технологического оборудования,
+          системы управления и цифровые технологии
+          в промышленности.
+
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- ========================================================================
+         EXPERIENCE
+         ======================================================================== -->
+
+    <section
+      class="section"
+      id="experience"
+    >
+
+      <div class="container">
+
+        <div class="section-header reveal">
+
+          <p class="section-label">
+            ОПЫТ
+          </p>
+
+          <h2 class="section-title">
+            Учебный и проектный опыт
+          </h2>
+
+        </div>
+
+        <div class="timeline">
+
+          <article class="timeline-item reveal">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-content glass">
+
+              <span class="timeline-date">
+                2025 — настоящее время
+              </span>
+
+              <h3>
+                Учебные проекты
+              </h3>
+
+              <p>
+
+                Разработка инженерных и программных решений,
+                связанных с автоматизацией процессов.
+
+              </p>
+
+            </div>
+
+          </article>
+
+          <article class="timeline-item reveal">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-content glass">
+
+              <span class="timeline-date">
+                2024 — 2025
+              </span>
+
+              <h3>
+                Изучение веб-разработки
+              </h3>
+
+              <p>
+
+                Освоение HTML5, CSS3, JavaScript,
+                адаптивной верстки и интерфейсов.
+
+              </p>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ========================================================================
+         EDUCATION
+         ======================================================================== -->
+
+    <section
+      class="section"
+      id="education"
+    >
+
+      <div class="container reveal">
+
+        <div class="section-header">
+
+          <p class="section-label">
+            ОБРАЗОВАНИЕ
+          </p>
+
+          <h2 class="section-title">
+            Университет
+          </h2>
+
+        </div>
+
+        <div class="glass education-card">
+
+          <h3>
+            МГТУ «СТАНКИН»
+          </h3>
+
+          <p>
+
+            Направление:
+            автоматизация технологических процессов и производств.
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ========================================================================
+         SKILLS
+         ======================================================================== -->
+
+    <section
+      class="section"
+      id="skills"
+    >
+
+      <div class="container">
+
+        <div class="section-header reveal">
+
+          <p class="section-label">
+            НАВЫКИ
+          </p>
+
+          <h2 class="section-title">
+            Технологии и инструменты
+          </h2>
+
+        </div>
+
+        <div class="skills-grid">
+
+          <article class="skill-card reveal">
+
+            <h3>
+              HTML5
+            </h3>
+
+            <p>
+              Семантическая адаптивная верстка
+            </p>
+
+          </article>
+
+          <article class="skill-card reveal">
+
+            <h3>
+              CSS3
+            </h3>
+
+            <p>
+              Grid, Flexbox, анимации
+            </p>
+
+          </article>
+
+          <article class="skill-card reveal">
+
+            <h3>
+              JavaScript
+            </h3>
+
+            <p>
+              Работа с DOM и интерфейсами
+            </p>
+
+          </article>
+
+          <article class="skill-card reveal">
+
+            <h3>
+              CAD/CAM
+            </h3>
+
+            <p>
+              Инженерные и производственные системы
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ========================================================================
+         CONTACT
+         ======================================================================== -->
+
+    <section
+      class="section"
+      id="contact"
+    >
+
+      <div class="container reveal">
+
+        <div class="section-header">
+
+          <p class="section-label">
+            КОНТАКТЫ
+          </p>
+
+          <h2 class="section-title">
+            Обратная связь
+          </h2>
+
+        </div>
+
+        <form
+          class="glass contact-form"
+          id="contact-form"
+        >
+
+          <!-- Имя -->
+
+          <div class="form-group">
+
+            <label for="name">
+              Имя
+            </label>
+
+            <input
+              type="text"
+              id="name"
+              placeholder="Введите имя"
+            />
+
+          </div>
+
+          <!-- Email -->
+
+          <div class="form-group">
+
+            <label for="email">
+              Email
+            </label>
+
+            <input
+              type="email"
+              id="email"
+              placeholder="Введите email"
+            />
+
+          </div>
+
+          <!-- Сообщение -->
+
+          <div class="form-group">
+
+            <label for="message">
+              Сообщение
+            </label>
+
+            <textarea
+              id="message"
+              rows="5"
+              placeholder="Введите сообщение"
+            ></textarea>
+
+          </div>
+
+          <button
+            type="submit"
+            class="btn btn-primary"
+          >
+            Отправить
+          </button>
+
+          <!-- Уведомление -->
+
+          <div
+            class="notification"
+            id="notification"
+          ></div>
+
+        </form>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+
+  <footer class="footer">
+
+    <div class="container">
+
+      <p>
+        © 2026 Алексей
+      </p>
+
+    </div>
+
+  </footer>
+
+  <!-- ==========================================================================
+       JAVASCRIPT
+       ========================================================================== -->
+
+  <script>
+
+    /* ========================================================================
+       ПЛАВНЫЙ СКРОЛЛ К ФОРМЕ
+       ======================================================================== */
+
+    const contactButton =
+      document.getElementById("contact-button");
+
+    const contactSection =
+      document.getElementById("contact");
+
+    contactButton.addEventListener("click", () => {
+
+      contactSection.scrollIntoView({
+
+        behavior: "smooth"
+
+      });
+
+    });
+
+    /* ========================================================================
+       ИЗМЕНЕНИЕ HEADER ПРИ ПРОКРУТКЕ
+       ======================================================================== */
+
+    const header =
+      document.getElementById("header");
+
+    window.addEventListener("scroll", () => {
+
+      if (window.scrollY > 50) {
+
+        header.classList.add("scrolled");
+
+      } else {
+
+        header.classList.remove("scrolled");
+      }
+
+    });
+
+    /* ========================================================================
+       АНИМАЦИЯ ПОЯВЛЕНИЯ ЭЛЕМЕНТОВ
+       Intersection Observer API
+       ======================================================================== */
+
+    const revealElements =
+      document.querySelectorAll(".reveal");
+
+    const observer =
+      new IntersectionObserver((entries) => {
+
+        entries.forEach((entry) => {
+
+          if (entry.isIntersecting) {
+
+            entry.target.classList.add("active");
+          }
+
+        });
+
+      }, {
+
+        threshold: 0.15
+
+      });
+
+    revealElements.forEach((element) => {
+
+      observer.observe(element);
+
+    });
+
+    /* ========================================================================
+       КАСТОМНАЯ ВАЛИДАЦИЯ ФОРМЫ
+       ======================================================================== */
+
+    const form =
+      document.getElementById("contact-form");
+
+    const notification =
+      document.getElementById("notification");
+
+    form.addEventListener("submit", (event) => {
+
+      /*
+        Отключаем стандартную отправку формы
+      */
+
+      event.preventDefault();
+
+      /*
+        Получаем значения полей
+      */
+
+      const name =
+        document.getElementById("name")
+        .value
+        .trim();
+
+      const email =
+        document.getElementById("email")
+        .value
+        .trim();
+
+      const message =
+        document.getElementById("message")
+        .value
+        .trim();
+
+      /*
+        Проверка email через регулярное выражение
+      */
+
+      const emailPattern =
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      /*
+        Проверка имени
+      */
+
+      if (name.length < 2) {
+
+        showNotification(
+
+          "Введите корректное имя",
+
+          false
+        );
+
+        return;
+      }
+
+      /*
+        Проверка email
+      */
+
+      if (!emailPattern.test(email)) {
+
+        showNotification(
+
+          "Введите корректный email",
+
+          false
+        );
+
+        return;
+      }
+
+      /*
+        Проверка сообщения
+      */
+
+      if (message.length < 10) {
+
+        showNotification(
+
+          "Сообщение слишком короткое",
+
+          false
+        );
+
+        return;
+      }
+
+      /*
+        Имитация успешной отправки
+      */
+
+      showNotification(
+
+        "Сообщение успешно отправлено",
+
+        true
+      );
+
+      /*
+        Очистка формы
+      */
+
+      form.reset();
+
+    });
+
+    /* ========================================================================
+       ФУНКЦИЯ ВЫВОДА УВЕДОМЛЕНИЯ
+       ======================================================================== */
+
+    function showNotification(text, success) {
+
+      notification.textContent = text;
+
+      notification.style.color =
+        success ? "green" : "crimson";
+
+    }
+
+  </script>
+
+</body>
+
+</html>
